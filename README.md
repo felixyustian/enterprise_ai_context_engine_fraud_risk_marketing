@@ -37,9 +37,9 @@ Sistem ini menggunakan alur kerja agen otonom (Agentic Workflow) yang terbagi me
 1. Inisialisasi Backend: Jalankan file `engine.py` yang berisi logika LangGraph dan MCP.
 2. Deployment UI: Jalankan perintah berikut di lingkungan notebook:
  
-  `Python
-  !streamlit run app.py --server.port 8501 --server.headless true
-  `
+```Python
+!streamlit run app.py --server.port 8501 --server.headless true
+``` 
 
 4. Akses Dashboard: Gunakan tautan `googleusercontent.com` yang dihasilkan, masukkan API Key Gemini Anda di sidebar, dan mulai analisis.
 
