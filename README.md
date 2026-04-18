@@ -7,7 +7,7 @@
 
 Repositori ini berisi prototipe fungsional Enterprise AI Context Engine yang dirancang untuk mengotomatisasi analisis risiko finansial dan strategi operasional menggunakan Agentic Workflow. Sistem ini mengintegrasikan data dinamis melalui Model Context Protocol (MCP) untuk pengambilan keputusan berbasis data secara real-time.
 
-graph TD
+```graph TD
     subgraph Enterprise_Security_Boundary [Boundary Keamanan Perusahaan]
         User((Analis Bisnis/Fraud)) -- Input Query --> Agent[Orkestrator Agen AI]
         
@@ -34,6 +34,8 @@ graph TD
     style Enterprise_Security_Boundary fill:#f9f9f9,stroke:#333,stroke-width:2px
     style MCP_Layer fill:#e1f5fe,stroke:#01579b,stroke-width:2px
     style LLM fill:#fff9c4,stroke:#fbc02d
+
+```
 
 ## 📋 Ringkasan Eksekutif
 Proyek ini mendemonstrasikan kemampuan untuk menerjemahkan strategi AI perusahaan ke dalam roadmap yang dapat dieksekusi. Dengan menggabungkan data terstruktur (statistik perbankan) dan data tidak terstruktur (regulasi), sistem ini memberikan wawasan mendalam mengenai Risk Analytics, Marketing Analytics, dan Fraud Analytics.
