@@ -36,12 +36,12 @@ Sistem ini menggunakan alur kerja agen otonom (Agentic Workflow) yang terbagi me
 ## 📖 Cara Menjalankan (Google Colab)
 Klik tombol di bawah ini untuk menjalankan *pipeline* secara penuh di Google Colab tanpa perlu setup lokal:
 
+1. Buka Notebook di Google Colab.
+
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/felixyustian/enterprise_ai_context_engine_fraud_risk_marketing/blob/main/enterprise_ai_context_engine_fraud_risk_marketing.ipynb)
 
-1. Buka Notebook di Google Colab.
 2. Masukkan Gemini API Key Anda.
 3. Jalankan semua sel (*Run All*).
-
 4. Akses Dashboard: Gunakan tautan `googleusercontent.com` yang dihasilkan, masukkan API Key Gemini Anda di sidebar, dan mulai analisis.
 
 ## 📈 Kasus Bisnis (ROI)
