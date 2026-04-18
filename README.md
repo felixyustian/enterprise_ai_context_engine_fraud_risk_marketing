@@ -36,9 +36,12 @@ Sistem ini menggunakan alur kerja agen otonom (Agentic Workflow) yang terbagi me
 ## 📖 Cara Menjalankan (Google Colab)
 1. Inisialisasi Backend: Jalankan file `engine.py` yang berisi logika LangGraph dan MCP.
 2. Deployment UI: Jalankan perintah berikut di lingkungan notebook:
-Python
+ 
+`Python
 !streamlit run app.py --server.port 8501 --server.headless true
-3. Akses Dashboard: Gunakan tautan `googleusercontent.com` yang dihasilkan, masukkan API Key Gemini Anda di sidebar, dan mulai analisis.
+`
+
+4. Akses Dashboard: Gunakan tautan `googleusercontent.com` yang dihasilkan, masukkan API Key Gemini Anda di sidebar, dan mulai analisis.
 
 ## 📈 Kasus Bisnis (ROI)
 Implementasi sistem ini ditujukan untuk mencapai:
