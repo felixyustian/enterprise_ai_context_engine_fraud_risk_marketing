@@ -10,7 +10,7 @@ Repositori ini berisi prototipe fungsional Enterprise AI Context Engine yang dir
 ## 📋 Ringkasan Eksekutif
 Proyek ini mendemonstrasikan kemampuan untuk menerjemahkan strategi AI perusahaan ke dalam roadmap yang dapat dieksekusi. Dengan menggabungkan data terstruktur (statistik perbankan) dan data tidak terstruktur (regulasi), sistem ini memberikan wawasan mendalam mengenai Risk Analytics, Marketing Analytics, dan Fraud Analytics.
 
-[cite_start]Solusi ini dikembangkan untuk menjawab tantangan operasional di mana keputusan bisnis strategis sering kali terhambat oleh silo data antara tim pemasaran, risiko, dan kepatuhan (*compliance*).
+Solusi ini dikembangkan untuk menjawab tantangan operasional di mana keputusan bisnis strategis sering kali terhambat oleh silo data antara tim pemasaran, risiko, dan kepatuhan (*compliance*).
 
 ## 🚀 Fitur Utama
 Agentic Orchestration (LangGraph): Menggunakan state machine untuk mengelola alur kerja AI mulai dari ekstraksi data hingga laporan strategis akhir secara siklis dan terstruktur.
@@ -46,7 +46,7 @@ Sistem ini menggunakan alur kerja agen otonom (Agentic Workflow) yang terbagi me
 ## 📈 Kasus Bisnis (ROI)
 Implementasi sistem ini ditujukan untuk mencapai:
 * **Reduksi Risiko:** Deteksi dini potensi pelanggaran regulasi sebelum kampanye dijalankan.
-* [cite_start]**Peningkatan ROI Pemasaran:** Memastikan target kampanye sesuai dengan profil risiko perbankan yang sehat.
+* **Peningkatan ROI Pemasaran:** Memastikan target kampanye sesuai dengan profil risiko perbankan yang sehat.
 * **Skalabilitas:** Memungkinkan tim R&D untuk menambah agen baru (misalnya: *Fraud Detection Agent*) tanpa merusak alur kerja utama.
 
 ---
