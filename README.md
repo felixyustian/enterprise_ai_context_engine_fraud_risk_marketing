@@ -7,6 +7,34 @@
 
 Repositori ini berisi prototipe fungsional Enterprise AI Context Engine yang dirancang untuk mengotomatisasi analisis risiko finansial dan strategi operasional menggunakan Agentic Workflow. Sistem ini mengintegrasikan data dinamis melalui Model Context Protocol (MCP) untuk pengambilan keputusan berbasis data secara real-time.
 
+graph TD
+    subgraph Enterprise_Security_Boundary [Boundary Keamanan Perusahaan]
+        User((Analis Bisnis/Fraud)) -- Input Query --> Agent[Orkestrator Agen AI]
+        
+        subgraph AI_Core [Infrastruktur Gen-AI]
+            Agent -- "Prompt + Context" --> LLM{LLM Engine<br/>Gemini/LLaMA}
+            LLM -- "Minta Data Spesifik" --> Agent
+        end
+
+        subgraph MCP_Layer [Model Context Protocol Layer]
+            Agent -- "Request via MCP" --> MCPServer[MCP Context Server]
+            MCPServer -- "Filtering & PII Masking" --> DataConnector[Data Connector]
+        end
+
+        subgraph Data_Source [Data Warehouse / Bank Core]
+            DataConnector -- "Secure SQL Query" --> DB[(Database Transaksi)]
+            DB -- "Raw Data" --> DataConnector
+        end
+        
+        DataConnector -- "Sanitized Data" --> MCPServer
+        MCPServer -- "Contextual Metadata" --> Agent
+        Agent -- "Final Insights" --> User
+    end
+
+    style Enterprise_Security_Boundary fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style MCP_Layer fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    style LLM fill:#fff9c4,stroke:#fbc02d
+
 ## 📋 Ringkasan Eksekutif
 Proyek ini mendemonstrasikan kemampuan untuk menerjemahkan strategi AI perusahaan ke dalam roadmap yang dapat dieksekusi. Dengan menggabungkan data terstruktur (statistik perbankan) dan data tidak terstruktur (regulasi), sistem ini memberikan wawasan mendalam mengenai Risk Analytics, Marketing Analytics, dan Fraud Analytics.
 
