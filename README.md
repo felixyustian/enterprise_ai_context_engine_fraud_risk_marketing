@@ -84,7 +84,7 @@ Klik tombol di bawah ini untuk menjalankan *pipeline* secara penuh di Google Col
 
 1. Buka Notebook di Google Colab.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/felixyustian/enterprise_ai_context_engine_fraud_risk_marketing/blob/main/enterprise_ai_context_engine_fraud_risk_marketing.ipynb)
+   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/felixyustian/enterprise_ai_context_engine_fraud_risk_marketing/blob/main/enterprise_ai_context_engine_fraud_risk_marketing.ipynb)
 
 2. Masukkan Gemini API Key Anda.
 3. Jalankan semua sel (*Run All*).
