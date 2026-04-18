@@ -72,7 +72,7 @@ Sistem ini menggunakan alur kerja agen otonom (Agentic Workflow) yang terbagi me
 2.  **Compliance Officer Agent (RAG):** Mengimplementasikan **Retrieval-Augmented Generation (RAG)** menggunakan *Vector Database* **FAISS** dan **Gemini-Embedding-001**. Agen ini secara dinamis mencari aturan dalam regulasi internal atau OJK yang relevan dengan kueri bisnis.
 3.  **Executive Manager Agent:** Bertugas sebagai orkestrator akhir yang mensintesis temuan dari kedua agen sebelumnya untuk menghasilkan rekomendasi strategis yang mitigatif terhadap risiko.
 
-## Tech Stack
+## 🚀 Tech Stack
 * Core: Python 3.12+
 * AI Orchestration: LangChain & LangGraph
 * LLM & Embedding: Google Gemini 2.5 Flash & Gemini-Embedding-001
