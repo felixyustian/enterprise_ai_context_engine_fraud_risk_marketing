@@ -1,33 +1,46 @@
-# Enterprise AI Context Engine: Unifying Risk, Fraud, & Marketing Analytics
+# Enterprise AI Agentic Workflow: Banking Risk & Compliance Engine
 
-![Architecture](https://img.shields.io/badge/Architecture-MCP%20%7C%20LLM%20%7C%20MLOps-blue)
-![Status](https://img.shields.io/badge/Status-Deployment%20Ready-success)
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
+![LangChain](https://img.shields.io/badge/LangChain-Latest-orange)
+![LangGraph](https://img.shields.io/badge/LangGraph-Multi--Agent-green)
+![RAG](https://img.shields.io/badge/Architecture-RAG%20%2B%20Tabular-red)
 
-## Executive Summary
-Repositori ini mendemonstrasikan prototipe **Enterprise AI Context Engine**, sebuah sistem cerdas yang dirancang untuk menjembatani kesenjangan antara model Machine Learning tradisional (Fraud Detection, Risk Scoring), data pipeline (Marketing Analytics), dan Large Language Models (LLMs). 
+## 📋 Ringkasan Eksekutif
+Repositori ini mendemonstrasikan prototipe sistem AI tingkat *Enterprise* yang dirancang untuk sektor perbankan dan finansial. Sistem ini mengintegrasikan data terstruktur (statistik perbankan) dengan data tidak terstruktur (regulasi kepatuhan) melalui arsitektur **Multi-Agent** yang dikelola oleh **LangGraph**.
 
-Proyek ini menggunakan arsitektur yang terinspirasi dari **Model Context Protocol (MCP)**, memungkinkan LLM bertindak sebagai agen penalaran otonom yang dapat memanggil analitik bisnis secara *real-time* untuk menghasilkan strategi bisnis yang *actionable* dan berbasis ROI.
+[cite_start]Solusi ini dikembangkan untuk menjawab tantangan operasional di mana keputusan bisnis strategis sering kali terhambat oleh silo data antara tim pemasaran, risiko, dan kepatuhan (*compliance*).
 
-## Business Use Case
-Dalam ekosistem ritel/fintech, kampanye pemasaran sering kali mendatangkan *traffic* yang tinggi. Namun, tanpa lapisan analitik yang terintegrasi, sulit untuk mengetahui apakah *traffic* tersebut adalah pelanggan potensial (High LTV) atau justru anomali/sindikat (Fraud) dengan risiko gagal bayar yang tinggi (Credit Risk). Sistem ini mengotomatiskan analisis lintas domain tersebut.
+## 🏗️ Arsitektur Sistem
+Sistem ini menggunakan alur kerja agen otonom (Agentic Workflow) yang terbagi menjadi tiga spesialisasi:
 
-## Fitur Utama
-1. **Fraud Analytics Module:** Menggunakan `IsolationForest` (Unsupervised Learning) untuk mendeteksi anomali pada transaksi.
-2. **Risk Analytics Module:** Mengevaluasi metrik *credit scoring* dan probabilitas gagal bayar berdasarkan data historis pengguna.
-3. **Marketing Analytics Module:** Mengkalkulasi metrik *Return on Investment* (ROI) dan *Customer Acquisition Cost* (CAC) per kampanye.
-4. **LLM Orchestration (Gemini API):** Mengintegrasikan hasil dari ketiga modul analitik di atas untuk menyusun narasi bisnis dan rekomendasi operasional bagi eksekutif.
-5. **Caching System (Redis):** Mengoptimalkan latensi pemanggilan data untuk efisiensi operasional.
+1.  **Data Analyst Agent:** Bertugas melakukan ekstraksi wawasan dari dataset tabular (menggunakan basis *UCI Bank Marketing Dataset*). Agen ini mengevaluasi metrik kunci seperti *conversion rate* dan profil saldo nasabah.
+2.  **Compliance Officer Agent (RAG):** Mengimplementasikan **Retrieval-Augmented Generation (RAG)** menggunakan *Vector Database* **FAISS** dan **Gemini-Embedding-001**. Agen ini secara dinamis mencari aturan dalam regulasi internal atau OJK yang relevan dengan kueri bisnis.
+3.  **Executive Manager Agent:** Bertugas sebagai orkestrator akhir yang mensintesis temuan dari kedua agen sebelumnya untuk menghasilkan rekomendasi strategis yang mitigatif terhadap risiko.
 
-## Cara Menjalankan (Google Colab)
-Klik tombol di bawah ini untuk menjalankan *pipeline* secara penuh di Google Colab tanpa perlu setup lokal:
+## 🚀 Fitur Utama & Keunggulan Teknis
+* [cite_start]**Decision-Making Berbasis Konteks:** Menggabungkan logika ML tradisional dengan penalaran LLM melalui *Model Context Protocol* (MCP) yang diimplementasikan dalam struktur LangGraph.
+* **Arsitektur RAG Stabil:** Menggunakan model embedding terbaru (`gemini-embedding-001`) untuk akurasi semantik yang lebih tinggi pada dokumen teknis/regulasi.
+* **Resiliensi Data:** Memiliki mekanisme *fallback* otomatis untuk memastikan pipeline tetap berjalan meskipun koneksi data eksternal terputus.
+* **Efisiensi Operasional:** Mengurangi waktu audit kepatuhan manual dengan integrasi pencarian regulasi secara *real-time*.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1B8i7dGn7UixuSfhZumC8_zMK2v2n8TH3?usp=sharing)
+## 🛠️ Tech Stack
+* **Orchestration:** LangChain, LangGraph
+* **LLM & Embedding:** Google Gemini 1.5 Flash, Gemini-Embedding-001
+* **Vector Store:** FAISS (Facebook AI Similarity Search)
+* **Data Analysis:** Pandas, Scikit-Learn
+* **Deployment:** Google Colab / Jupyter Notebook
 
-1. Buka Notebook di Google Colab.
-2. Masukkan Gemini API Key Anda.
-3. Jalankan semua sel (*Run All*).
+## 📖 Cara Menjalankan (Google Colab)
+1.  Buka file `Enterprise_AI_Context_Engine.ipynb` di Google Colab.
+2.  Masukkan `GOOGLE_API_KEY` Anda pada sel konfigurasi.
+3.  Jalankan semua sel (*Run All*). 
+4.  Sistem akan secara otomatis membangun *knowledge base* regulasi dan menganalisis dataset sebelum memberikan laporan eksekutif.
 
-## Tech Stack
-* **Orchestration:** Python, Google Generative AI (Gemini 2.5 Pro)
-* **Data Science:** Pandas, NumPy, Scikit-Learn
-* **Infrastructure:** Redis (In-memory cache)
+## 📈 Kasus Bisnis (ROI)
+Implementasi sistem ini ditujukan untuk mencapai:
+* **Reduksi Risiko:** Deteksi dini potensi pelanggaran regulasi sebelum kampanye dijalankan.
+* [cite_start]**Peningkatan ROI Pemasaran:** Memastikan target kampanye sesuai dengan profil risiko perbankan yang sehat.
+* **Skalabilitas:** Memungkinkan tim R&D untuk menambah agen baru (misalnya: *Fraud Detection Agent*) tanpa merusak alur kerja utama.
+
+---
+**Kontak Pengembang:** [Felix Yustian Setiono](https://linkedin.com/in/felixsetiono)
