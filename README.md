@@ -34,12 +34,13 @@ Sistem ini menggunakan alur kerja agen otonom (Agentic Workflow) yang terbagi me
 * Deployment: Streamlit via Google Colab Native Proxy
 
 ## 📖 Cara Menjalankan (Google Colab)
-1. Inisialisasi Backend: Jalankan file `engine.py` yang berisi logika LangGraph dan MCP.
-2. Deployment UI: Jalankan perintah berikut di lingkungan notebook:
- 
-```Python
-!streamlit run app.py --server.port 8501 --server.headless true
-``` 
+Klik tombol di bawah ini untuk menjalankan *pipeline* secara penuh di Google Colab tanpa perlu setup lokal:
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/felixyustian/enterprise_ai_context_engine_fraud_risk_marketing/blob/main/enterprise_ai_context_engine_fraud_risk_marketing.ipynb)
+
+1. Buka Notebook di Google Colab.
+2. Masukkan Gemini API Key Anda.
+3. Jalankan semua sel (*Run All*).
 
 4. Akses Dashboard: Gunakan tautan `googleusercontent.com` yang dihasilkan, masukkan API Key Gemini Anda di sidebar, dan mulai analisis.
 
