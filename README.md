@@ -50,4 +50,7 @@ Implementasi sistem ini ditujukan untuk mencapai:
 * **Skalabilitas:** Memungkinkan tim R&D untuk menambah agen baru (misalnya: *Fraud Detection Agent*) tanpa merusak alur kerja utama.
 
 ---
-**Kontak Pengembang:** [Felix Yustian Setiono](https://linkedin.com/in/felixsetiono)
+
+## ⚖️ License & Copyright
+
+*   **Implementation Copyright:** © 2026 [Felix Yustian Setiono](https://linkedin.com/in/felixsetiono). The entire system architecture, API source code, and experimental analysis documents within this repository are the original intellectual property of the author.
