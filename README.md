@@ -7,6 +7,8 @@
 
 Repositori ini berisi prototipe fungsional Enterprise AI Context Engine yang dirancang untuk mengotomatisasi analisis risiko finansial dan strategi operasional menggunakan Agentic Workflow. Sistem ini mengintegrasikan data dinamis melalui Model Context Protocol (MCP) untuk pengambilan keputusan berbasis data secara real-time.
 
+---
+
 ```mermaid
 graph TD
     subgraph Client_Interface [Interface Layer]
@@ -48,6 +50,8 @@ graph TD
     style AI_Intelligence_Core fill:#fffde7,stroke:#fbc02d
     style DB fill:#e8f5e9,stroke:#2e7d32
 ```
+
+---
 
 ## 📋 Ringkasan Eksekutif
 Proyek ini mendemonstrasikan kemampuan untuk menerjemahkan strategi AI perusahaan ke dalam roadmap yang dapat dieksekusi. Dengan menggabungkan data terstruktur (statistik perbankan) dan data tidak terstruktur (regulasi), sistem ini memberikan wawasan mendalam mengenai Risk Analytics, Marketing Analytics, dan Fraud Analytics.
