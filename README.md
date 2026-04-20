@@ -49,6 +49,7 @@ graph TD
     classDef db fill:#e8f5e9,stroke:#4caf50,stroke-width:2px;
     class G llm;
     class E db;
+```
 
 ## 🚀 Tech Stack
 * AI Core: Google Gemini 2.5 Flash
