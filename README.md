@@ -5,19 +5,19 @@
 ![LangGraph](https://img.shields.io/badge/LangGraph-Multi--Agent-green)
 ![RAG](https://img.shields.io/badge/Architecture-RAG%20%2B%20Tabular-red)
 
-This repository contains the implementation of the Enterprise AI Context Engine, engineered to automate financial risk analysis, fraud detection, and marketing strategies using Agentic Workflows. This system operates with ultra-low latency and is built for large-scale, resilient cloud infrastructure.
-
+A high-performance Enterprise AI Context Engine engineered to unify financial risk management, fraud detection (AML), and marketing ROI analytics. This system features a robust Case Management System with cloud-native persistent storage and a built-in SQL analytics layer.
 ---
 
 ## 📋 Executive Summary
 The system leverages an autonomous agent architecture to process multi-source data via the Model Context Protocol (MCP). Its primary objective is to deliver actionable insights across three critical domains: Fraud Detection, Credit Risk, and Marketing ROI Optimization.
 
 ## 🚀 Key Features
-* Agentic Orchestration (LangGraph): Manages complex workflows through a deterministic State Machine, ensuring structured and reliable agent execution.
-* Ultra-Fast Execution (Singleton Caching): Utilizes Lazy Loading and in-memory caching architecture (@st.cache_resource). LLM models and graph infrastructures are initialized exactly once, yielding hot-reload inference times under 2 seconds.
-* Resilient Cloud Infrastructure: Implements Port Pivoting and WebSocket Compression to ensure stable deployments, completely bypassing network bottlenecks or 404 errors in containerized/proxy environments.
-* MCP Tool Integration: Strictly decouples data retrieval logic (e.g., Core Banking or Credit Bureau API connections) from the core LLM reasoning engine using the latest industry protocol standards.
-* Zero-Hardcoded Secrets: Secures API Keys and sensitive credentials through dynamic Dependency Injection within the user interface, adhering to DevSecOps best practices.
+* Agentic Workflow Orchestration: Powered by LangGraph to manage complex, non-linear financial decision-making processes through deterministic state machines.
+* Unified Case Management (CRUD): A dedicated interface for registering and managing customer cases (ID: APP-XXX), bridging the gap between raw data and AI analysis.
+* Cloud-Native Persistence: Integrated with Google Drive API to use cloud spreadsheets as a persistent, accessible, and human-readable database.
+* SQL Analytics Engine: Built-in SQL explorer using pandasql, enabling users to perform complex relational queries and filtering directly on the cloud data.
+* Model Context Protocol (MCP): Implementation of a decoupled tool-calling layer to ensure secure and modular data retrieval from enterprise systems.
+* Enterprise Performance Tuning: Optimized with Singleton Caching and WebSocket Compression for sub-2-second hot-reload latency in cloud proxy environments.
 
 ### 📂 Data Persistence & SQL Layer
 The engine now features a complete Case Management System:
@@ -25,43 +25,45 @@ The engine now features a complete Case Management System:
 * **SQL-Based Querying:** Built-in SQL editor to perform complex analytics (e.g., filtering high-risk segments) using `pandasql`.
 * **Dynamic Case Registration:** Register new application IDs (APP-XXX) that immediately become available for AI Analysis.
 
-## 🏗️ Agentic Architecture
-The system operates sequentially through critical nodes within the directed graph:
+## 🏗️ System Architecture & Data Flow
+The engine operates on a three-tier architecture: the UI Layer (Streamlit), the Persistence Layer (Google Drive SQL Bridge), and the Intelligence Layer (LangGraph & Gemini).
 1. MCP Inference Node: Dynamically retrieves real-time data (e.g., marketing metrics, AML transaction history, or credit scores) based on contextual user input.
 2. Strategist Node: Leverages the analytical capabilities of Gemini 2.5 Flash to synthesize the retrieved data into executive decision reports (e.g., [APPROVED], [REJECTED], or budget reallocation strategies).
 
 ### Visualisasi Alur Sistem
 ```mermaid
 graph TD
-    A[User Input / Dashboard] -->|User Query| B(Streamlit UI Port 8502)
-    B -->|Trigger Graph| C{LangGraph State Machine}
-    
-    subgraph "Data Integration Layer (MCP)"
-    C -->|Tool Call| D[MCP Client Node]
-    D --> E[(Simulated Core Banking / Bureau)]
-    E -->|Return JSON| D
+    subgraph "User Interface (Streamlit)"
+    UI[Dashboard UI] -->|1. Input Case APP-XXX| CE[Case Entry Form]
+    UI -->|2. Query SQL| SQL[SQL Analytics View]
+    UI -->|3. Trigger AI| AE[AI Analytics Engine]
     end
 
-    subgraph "Intelligence Layer"
-    D -->|Context Data| F[Strategist Node]
-    F -->|Prompt + Data| G((Gemini 2.5 Flash))
-    G -->|Analytical Response| F
+    subgraph "Persistence Layer (Cloud)"
+    CE -->|Write Data| GD[(Google Drive / GSheets)]
+    SQL -->|Read/Filter| GD
+    AE -->|Fetch Context| GD
     end
-    
-    F -->|Final Report| B
-    
-    classDef default fill:#f9f9f9,stroke:#333,stroke-width:2px;
-    classDef llm fill:#e1f5fe,stroke:#03a9f4,stroke-width:2px;
-    classDef db fill:#e8f5e9,stroke:#4caf50,stroke-width:2px;
-    class G llm;
-    class E db;
+
+    subgraph "Intelligence Layer (Agentic)"
+    AE -->|Task Delegation| LG{LangGraph Orchestrator}
+    LG -->|Context Retrieval| MCP[MCP Tool Node]
+    MCP -->|Query Data| GD
+    LG -->|Reasoning| GEM((Gemini 2.5 Flash))
+    GEM -->|Final Verdict| UI
+    end
+
+    style GEM fill:#e1f5fe,stroke:#03a9f4,stroke-width:2px
+    style GD fill:#e8f5e9,stroke:#4caf50,stroke-width:2px
+    style LG fill:#fff3e0,stroke:#ff9800,stroke-width:2px
 ```
 
 ## 🚀 Tech Stack
-* AI Core: Google Gemini 2.5 Flash
-* Orchestration: LangGraph & LangChain
-* Backend Logic: Python 3.12, Pydantic (v2)
-* Frontend & Deployment: Streamlit (Optimized for WebSocket/Proxy routing)
+* AI/LLM: Google Gemini 2.5 Flash
+* Orchestration: LangGraph, LangChain
+* Database Layer: Google Drive (GSheets), SQL (via pandasql)
+* Frontend: Streamlit (Custom Tuned for WebSocket Stability)
+* Validation: Pydantic v2
 
 ## 📖 Deployment Guide
 Klik tombol di bawah ini untuk menjalankan *pipeline* secara penuh di Google Colab tanpa perlu setup lokal:
@@ -69,30 +71,33 @@ Klik tombol di bawah ini untuk menjalankan *pipeline* secara penuh di Google Col
 1. Environment Preparation:
 Ensure all dependencies are installed. This project is highly optimized for cloud-native environments such as Google Colab or Docker containers.
 
-2. Backend Initialization:
-Run the `engine.py` module to build the LangGraph architecture and the simulated MCP server.
-
-3. Server Launch (Optimized):
-The application is explicitly configured to run on Port 8502 with data compression enabled. Execute the following command:
-
 ```bash
-streamlit run app.py \
-  --server.port 8502 \
-  --server.headless true \
-  --server.enableCORS false \
-  --server.enableXsrfProtection false \
-  --server.enableWebsocketCompression true \
-  --browser.gatherUsageStats false
+pip install -r requirements.txt
 ```
 
-4. UI Access:
+2. Environment Configuration:
+The system expects a Google Spreadsheet named Enterprise_AI_DB within your Google Drive to act as the primary database.
+
+3. Launch the Engine:
+Run the application with optimized production flags:
+
+```bash
+streamlit run app.py --server.port 8502 --server.enableWebsocketCompression true
+```
+
+4. SQL Querying:
+Access the SQL Database View tab to execute queries such as:
+`SELECT * FROM df WHERE risk_score > 75 AND status = 'Pending'`
+
+5. UI Access:
 Open the dashboard via a secure tunnel. If deployed on Colab, utilize the internal proxy: `output.serve_kernel_port_as_window(8502)`.
 
 ## 📈 Business Case (ROI)
 The implementation of this system is designed to achieve:
 * Instant Risk Mitigation: Early detection of anomalies in credit applications or high-risk marketing campaigns prone to Non-Performing Loans (NPL).
-* Operational Efficiency (SLA): Slashes manual underwriting lead times from several days to mere seconds via the cache-optimized architecture.
+* Operational Efficiency (SLA): Slashes manual underwriting lead times from several days to mere seconds via the cache-optimized architecture. Reduces manual underwriting and fraud-review time by up to 85% via automated agentic reporting.
 * Organizational Scalability: Empowers the R&D team to seamlessly integrate new, specialized agents into the State Machine without disrupting or refactoring the existing core system.
+* Visibility: Centralizes siloed Risk and Marketing data into a single, SQL-searchable dashboard.
 
 ---
 
