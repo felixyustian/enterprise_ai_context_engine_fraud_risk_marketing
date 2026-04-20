@@ -19,6 +19,12 @@ The system leverages an autonomous agent architecture to process multi-source da
 * MCP Tool Integration: Strictly decouples data retrieval logic (e.g., Core Banking or Credit Bureau API connections) from the core LLM reasoning engine using the latest industry protocol standards.
 * Zero-Hardcoded Secrets: Secures API Keys and sensitive credentials through dynamic Dependency Injection within the user interface, adhering to DevSecOps best practices.
 
+### 📂 Data Persistence & SQL Layer
+The engine now features a complete Case Management System:
+* **Google Drive Integration:** All input data is persisted in real-time to Google Drive (via GSheets/SQL bridge).
+* **SQL-Based Querying:** Built-in SQL editor to perform complex analytics (e.g., filtering high-risk segments) using `pandasql`.
+* **Dynamic Case Registration:** Register new application IDs (APP-XXX) that immediately become available for AI Analysis.
+
 ## 🏗️ Agentic Architecture
 The system operates sequentially through critical nodes within the directed graph:
 1. MCP Inference Node: Dynamically retrieves real-time data (e.g., marketing metrics, AML transaction history, or credit scores) based on contextual user input.
