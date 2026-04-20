@@ -31,7 +31,7 @@ The engine operates on a three-tier architecture: the UI Layer (Streamlit), the 
 1. MCP Inference Node: Dynamically retrieves real-time data (e.g., marketing metrics, AML transaction history, or credit scores) based on contextual user input.
 2. Strategist Node: Leverages the analytical capabilities of Gemini 2.5 Flash to synthesize the retrieved data into executive decision reports (e.g., [APPROVED], [REJECTED], or budget reallocation strategies).
 
-### Visualisasi Alur Sistem
+### System Pipeline Visualization
 ```mermaid
 graph TD
     subgraph "User Interface (Streamlit)"
