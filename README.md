@@ -1,11 +1,11 @@
-# Enterprise AI Agentic Workflow: Banking Risk & Compliance Engine
+# Enterprise AI Context Engine: Fraud, Risk & Marketing Analytics
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
 ![LangChain](https://img.shields.io/badge/LangChain-Latest-orange)
 ![LangGraph](https://img.shields.io/badge/LangGraph-Multi--Agent-green)
 ![RAG](https://img.shields.io/badge/Architecture-RAG%20%2B%20Tabular-red)
 
-Repositori ini berisi prototipe fungsional Enterprise AI Context Engine yang dirancang untuk mengotomatisasi analisis risiko finansial dan strategi operasional menggunakan Agentic Workflow. Sistem ini mengintegrasikan data dinamis melalui Model Context Protocol (MCP) untuk pengambilan keputusan berbasis data secara real-time.
+This repository contains the implementation of the Enterprise AI Context Engine, designed to automate financial risk analysis, fraud detection, and marketing strategies using Agentic Workflows. This project demonstrates how an enterprise-level AI strategy can be translated into an executable roadmap using state-of-the-art agent orchestration technologies.
 
 ---
 
@@ -53,51 +53,57 @@ graph TD
 
 ---
 
-## 📋 Ringkasan Eksekutif
-Proyek ini mendemonstrasikan kemampuan untuk menerjemahkan strategi AI perusahaan ke dalam roadmap yang dapat dieksekusi. Dengan menggabungkan data terstruktur (statistik perbankan) dan data tidak terstruktur (regulasi), sistem ini memberikan wawasan mendalam mengenai Risk Analytics, Marketing Analytics, dan Fraud Analytics.
+## 📋 Executive Summary
+The system utilizes an autonomous-agent architecture to process data from various sources via the Model Context Protocol (MCP). Its primary focus is to deliver actionable insights across three critical domains: Fraud Detection, Credit Risk, and Marketing ROI Optimization.
 
-Solusi ini dikembangkan untuk menjawab tantangan operasional di mana keputusan bisnis strategis sering kali terhambat oleh silo data antara tim pemasaran, risiko, dan kepatuhan (*compliance*).
+## 🚀 Key Features
+* Agentic Orchestration (LangGraph): Manages complex workflows through a State Machine, ensuring every step (from data retrieval to executive reporting) runs deterministically and structurally.
+* MCP Tool Integration: Utilizes industry-standard protocols to decouple data retrieval logic (tool calling) from the core LLM, guaranteeing data security and system scalability.
+* Dependency Injection Security: Implements dynamic API Key management via the UI, avoiding hardcoded sensitive keys in the source code to strictly comply with enterprise security standards.
+* Enterprise-Grade UI: An interactive interface built with Streamlit, optimized for secure, frictionless access via internal proxy mechanisms.
 
-## 🚀 Fitur Utama
-Agentic Orchestration (LangGraph): Menggunakan state machine untuk mengelola alur kerja AI mulai dari ekstraksi data hingga laporan strategis akhir secara siklis dan terstruktur.
-
-* MCP Tool Integration: Implementasi Model Context Protocol sebagai nilai tambah strategis untuk memisahkan logika bisnis dari inti model AI.
-* RAG-Powered Insights: Menggunakan Retrieval-Augmented Generation (RAG) dengan Vector Database FAISS untuk analisis kepatuhan regulasi secara otomatis.
-* Enterprise-Grade UI: Interface interaktif berbasis Streamlit yang mendukung injeksi API Key secara dinamis, memastikan keamanan data sensitif.
-
-## 🏗️ Arsitektur Sistem
-Sistem ini menggunakan alur kerja agen otonom (Agentic Workflow) yang terbagi menjadi tiga spesialisasi:
-
-1.  **Data Analyst Agent:** Bertugas melakukan ekstraksi wawasan dari dataset tabular (menggunakan basis *UCI Bank Marketing Dataset*). Agen ini mengevaluasi metrik kunci seperti *conversion rate* dan profil saldo nasabah.
-2.  **Compliance Officer Agent (RAG):** Mengimplementasikan **Retrieval-Augmented Generation (RAG)** menggunakan *Vector Database* **FAISS** dan **Gemini-Embedding-001**. Agen ini secara dinamis mencari aturan dalam regulasi internal atau OJK yang relevan dengan kueri bisnis.
-3.  **Executive Manager Agent:** Bertugas sebagai orkestrator akhir yang mensintesis temuan dari kedua agen sebelumnya untuk menghasilkan rekomendasi strategis yang mitigatif terhadap risiko.
+## 🏗️ Agentic Architecture
+The system operates with two primary nodes within the directed graph:
+1. MCP Inference Node: Responsible for fetching real-time risk metrics based on user queries (e.g., analyzing the viability of a specific marketing campaign).
+2. Strategist Node: Leverages Gemini 2.5 Flash to synthesize raw technical data into a comprehensive managerial strategy report, encompassing risk mitigation recommendations and financial forecasts.
 
 ## 🚀 Tech Stack
-* Core: Python 3.12+
-* AI Orchestration: LangChain & LangGraph
-* LLM & Embedding: Google Gemini 2.5 Flash & Gemini-Embedding-001
-* Data Science: Pandas, Scikit-Learn (Isolation Forest untuk Fraud Detection)
-* Deployment: Streamlit via Google Colab Native Proxy
+* AI Core: Google Gemini 2.5 Flash
+* Orchestration: LangGraph & LangChain
+* Backend Logic: Python 3.12, Pydantic (v2)
+* Data Science: Pandas & NumPy
+* Frontend Deployment: Streamlit
 
-## 📖 Cara Menjalankan (Google Colab)
+## 📖 How to Run (via Google Colab)
 Klik tombol di bawah ini untuk menjalankan *pipeline* secara penuh di Google Colab tanpa perlu setup lokal:
 
-1. Buka Notebook di Google Colab.
+1. Install Dependencies:
+Ensure all required libraries (LangChain, LangGraph, Streamlit) are installed in your environment.
 
-   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/felixyustian/enterprise_ai_context_engine_fraud_risk_marketing/blob/main/enterprise_ai_context_engine_fraud_risk_marketing.ipynb)
+2. Initialize Engine:
+Run the cell that writes the `engine.py` file to configure the agent architecture.
 
-2. Masukkan Gemini API Key Anda.
-3. Jalankan semua sel (*Run All*).
-4. Akses Dashboard: Gunakan tautan `googleusercontent.com` yang dihasilkan, masukkan API Key Gemini Anda di sidebar, dan mulai analisis.
+3. Launch UI:
+Start the application using the following command:
 
-## 📈 Kasus Bisnis (ROI)
-Implementasi sistem ini ditujukan untuk mencapai:
-* **Reduksi Risiko:** Deteksi dini potensi pelanggaran regulasi sebelum kampanye dijalankan.
-* **Peningkatan ROI Pemasaran:** Memastikan target kampanye sesuai dengan profil risiko perbankan yang sehat.
-* **Skalabilitas:** Memungkinkan tim R&D untuk menambah agen baru (misalnya: *Fraud Detection Agent*) tanpa merusak alur kerja utama.
+```bash
+!streamlit run app.py --server.port 8501 --server.headless true
+```
 
+4. Access Dashboard:
+Utilize Google Colab's native output.serve_kernel_port_as_window(8501) feature to open the interface securely, bypassing local firewall or antivirus restrictions.
+
+## 📊 Example Output
+The system is capable of instantly detecting correlations between marketing campaigns and risk profiles:
+* Findings: Campaign "CAMP_B" exhibits a Fraud Score of 0.45 and an NPL (Non-Performing Loan) Risk of 0.12.
+* Strategic Recommendation: The AI agent recommends tightening automated KYC verification on this specific channel and suggests reallocating the marketing budget to organic channels to maintain the company's financial stability.
+
+## 📈 Business Case (ROI)
+The implementation of this system is designed to achieve:
+* Risk Mitigation: Early detection of potential regulatory violations before campaign execution.
+* Enhanced Marketing ROI: Ensuring campaign targets align with a healthy and sustainable banking risk profile.
+* Scalability: Empowering the R&D team to seamlessly integrate new specialized agents (e.g., Fraud Detection Agent) without disrupting the core workflow.
 ---
 
 ## ⚖️ License & Copyright
-
 *   **Implementation Copyright:** © 2026 [Felix Yustian Setiono](https://linkedin.com/in/felixsetiono). The entire system architecture, API source code, and experimental analysis documents within this repository are the original intellectual property of the author.
