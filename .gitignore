@@ -1,0 +1,25 @@
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# API Keys & Secrets
+client_secret.json
+credentials.json
+*.pem
+*.key
+
+# Python / Colab Caches
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+streamlit_debug.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
