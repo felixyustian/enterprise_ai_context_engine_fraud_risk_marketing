@@ -6,6 +6,7 @@
 ![RAG](https://img.shields.io/badge/Architecture-RAG%20%2B%20Tabular-red)
 
 A high-performance Enterprise AI Context Engine engineered to unify financial risk management, fraud detection (AML), and marketing ROI analytics. This system features a robust Case Management System with cloud-native persistent storage and a built-in SQL analytics layer.
+
 ---
 
 ## 📋 Executive Summary
